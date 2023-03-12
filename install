@@ -18,6 +18,8 @@ if [ ! -r exports/path/PATH.sh ]; then
     exit 1
 fi
 
+which op > /dev/null || (echo "Installing 1Password CLI..." && brew install --cask 1password/tap/1password-cli)
+
 source functions/debug.sh
 zsh exports/path/install.sh
 source exports/path/PATH.sh

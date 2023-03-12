@@ -5,6 +5,7 @@
 DOTFILES=${DOTFILES:=~/dotfiles}
 source ${DOTFILES}/functions/debug.sh
 
+
 ##### Alfred - Google Authenticator
 debug "Verifying ~/.gauth exists"
 if [[ ! -r ~/.gauth ]]; then
