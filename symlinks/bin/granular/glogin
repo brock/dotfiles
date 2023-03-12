@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+# glogin
+# 
+# logs into onelogin-aws-login for dev, test and prod
+# then sets dev to current config
+
+onelogin-aws-login --arn arn:aws:iam::$(op read op://Corteva/aws/prod/account_id):role/ReadOnlySSO --region us-east-1 --profile granappproduction
+onelogin-aws-login --arn arn:aws:iam::$(op read op://Corteva/aws/test/account_id):role/ReadOnlySSO --region us-east-1 --profile granapptest
+
+glogind

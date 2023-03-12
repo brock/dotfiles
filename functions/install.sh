@@ -9,4 +9,4 @@ for file in $DOTFILES/functions/*; do
     fi
 done
 
-echo "Functions loaded"
+debug "Functions loaded"

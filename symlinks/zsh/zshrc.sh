@@ -43,12 +43,15 @@ source $ZSH/oh-my-zsh.sh
 # source all files in the exports directory
 [[ -r ~/dotfiles/exports/index.sh ]] && source ~/dotfiles/exports/index.sh
 
+# source all functions in the exports directory
+[[ -r ~/dotfiles/functions/install.sh ]] && source ~/dotfiles/functions/install.sh
+
 
 setopt hist_expire_dups_first
 setopt hist_find_no_dups
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /Users/brock/dotfiles/bin/granular/terraform terraform
+complete -o nospace -C /Users/brock/dotfiles/symlinks/bin/granular/terraform terraform
 
 # enable command completion / initially added after adding jira-cli with brew
 autoload -U compinit; compinit
