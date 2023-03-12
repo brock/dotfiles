@@ -1,0 +1,20 @@
+#!/usr/bin/env zsh
+# killport - kills the PID that is using PORT_NUMBER
+# Usage: killport {PORT_NUMBER}
+
+if [ $# -ne 1 ]; then
+	echo "Must pass a single argument: killport PORT_NUMBER"
+	exit 1
+else
+	PORT_NUMBER=$1
+fi
+
+PID=$(lsof -t -i:${PORT_NUMBER})
+
+if [ -z "${PID}" ]; then
+	echo "No process found running on port ${PORT_NUMBER}"
+	exit 1
+else
+	echo "Killing process ${PID} that was running on port ${PORT_NUMBER}"
+	kill -9 ${PID}
+fi

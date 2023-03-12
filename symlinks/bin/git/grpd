@@ -1,0 +1,30 @@
+#!/usr/bin/env zsh
+# grpd - git remote prune origin and delete pruned branches
+
+git remote prune origin
+git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d 2> /dev/null
+
+# http://stackoverflow.com/questions/17983068/delete-local-git-branches-after-deleting-them-on-the-remote-repo
+# git fetch --all -p; git branch -vv | grep ": gone]" | awk '{ print $1 }' | xargs -n 1 git branch -D
+
+# TODO: this script should capture output and search for branches via the following format:
+#
+# error: The branch 'GEOD-304' is not fully merged.
+# If you are sure you want to delete it, run 'git branch -D GEOD-304'.
+# error: The branch 'GEOD-321-make-map-expand' is not fully merged.
+# If you are sure you want to delete it, run 'git branch -D GEOD-321-make-map-expand'.
+#
+# Successfully deleted branches look like this:
+#
+# Deleted branch GEOD-341-about-backbone-in-master (was c64d0f9).
+#
+# It would be nice if it looked like this:
+#
+# Deleted branches:
+# - GEOD-341-about-backbone-in-master
+# - GEOD-342-some-test-branch
+#
+# Stale branches:
+# - git branch -D GEOD-304
+# - git branch -D GEOD-321-make-map-expand
+#

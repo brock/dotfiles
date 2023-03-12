@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+# git-hide
+# Usage: git hide path_to_file
+
+if [[ $# -ne 1 ]]; then
+	echo "Usage: git hide path_to_file"
+fi
+
+git update-index --skip-worktree ${1} || echo "Please commit a template of this file before hiding it."

@@ -1,0 +1,23 @@
+#!/bin/zsh
+# open_repo_in_browser [github|gitlab|granular]
+
+if [[ $# -lt 1 ]]; then
+	echo "Please specify the desired repo origin to view in a browser"
+	echo "Usage: open_repo_in_browser github"
+	echo "       open_repo_in_browser granular"
+	echo 
+	exit 1
+else
+	if [[ ! ($1 = 'github' || $1 = 'gitlab' || $1 = 'granular') ]]; then
+		echo "Argument must be github or gitlab or granular"
+		exit 1
+	else
+		ORIGIN=$1
+	fi
+
+fi
+
+BRANCH=$(git branch | grep "*" | awk '{print $2}')
+URL=$(get_repo_url ${ORIGIN})
+
+test $URL && open "${URL}" || echo "This repo is not on ${ORIGIN}"

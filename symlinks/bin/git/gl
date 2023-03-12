@@ -1,0 +1,4 @@
+#!/bin/zsh
+# gl - open the current repo in Granular's gitlab
+
+open_repo_in_browser granular

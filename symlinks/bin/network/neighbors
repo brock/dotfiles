@@ -1,0 +1,16 @@
+#!/usr/bin/env zsh
+# neighbors - emits a broadcast and slurps up neighboring IP addresses on your local network
+
+BROADCAST=$(ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active' | grep broadcast | awk '{ print $6 }')
+
+ping -c 2 $BROADCAST > /dev/null
+
+# grep -v is like 'grep that is NOT this value'
+arp -a -n | grep -v '(incomplete)' | \
+  grep -v 'ff:ff:ff:ff:ff:ff' | \
+  grep -v '10.0.1.1'
+
+# I'd like to be able to show the type of device based on the MAC address
+# this could be used to parse the response from arp
+# http://www.coffer.com/mac_find/?string=b8%3Ae8%3A56
+# ? (10.0.1.40) at b8:e8:56:2b:eb:7c on en0 ifscope permanent [ethernet]

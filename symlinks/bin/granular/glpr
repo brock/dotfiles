@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+# glpr - Gitlab Pull Request (Merge Request)
+# Does not work with Github since they call them Pull Requests
+# description: a cli tool to create a merge request on granular gitlab
+# assumes the current branch already exists on gitlab
+
+BRANCH=$(git branch | grep \* | cut -d ' ' -f2)
+GIT_REMOTE_V=$(git remote -v | head -n1 | awk '{print $2}')
+DOMAIN=$(echo ${GIT_REMOTE_V} | sed "s/git@\(.*\):.*.git/\1/")
+GITLAB_GROUP=$(echo ${GIT_REMOTE_V} | sed 's/.*://g' |  sed -E 's/(.*)(\/.*\.git)/\1/')
+REPO=$(echo ${GIT_REMOTE_V} | sed 's/.*\///' | sed 's/\.git//')
+URL="https://${DOMAIN}/${GITLAB_GROUP}/${REPO}/merge_requests/new?utf8=%E2%9C%93"
+URL+="&merge_request%5Bsource_branch%5D=${BRANCH}"
+
+open $URL

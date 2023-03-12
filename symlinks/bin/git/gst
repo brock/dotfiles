@@ -1,0 +1,26 @@
+#!/usr/bin/env zsh
+# gst - shortcut for git status
+
+IS_A_GIT_DIRECTORY=$(test -d .git && echo 1)
+
+if [ "${IS_A_GIT_DIRECTORY}" = 1 ]; then
+	git status
+else
+	echo "Recently Modified:"
+	echo "################"
+	/bin/ls -tl | head -n 6 | tail -n 5 | awk '{print $1=$2=$3=$4=$5=""; print $0}'
+
+	echo "Pending changes:"
+	echo "################"
+	GIT_DIRECTORIES=($(find -s . -type d -depth 1 -exec test -e '{}/.git' ';' -print -prune))
+	for directory in "${GIT_DIRECTORIES[@]}"
+	do
+	    DIR=$(basename $directory)
+	    cd ${directory}
+	    UNCLEAN_FILES=$(git status -s | wc -l | awk '{print $1}')
+	    if [ $((UNCLEAN_FILES)) -gt 0 ]; then
+	        echo "${DIR}: ${UNCLEAN_FILES}"
+	    fi
+	    cd ..
+	done
+fi

@@ -1,0 +1,5 @@
+#!/bin/zsh
+# zkiller - stops ZScaler completely
+
+launchctl unload /Library/LaunchAgents/com.zscaler.tray.plist
+sudo launchctl unload /Library/LaunchDaemons/com.zscaler.service.plist /Library/LaunchDaemons/com.zscaler.tunnel.plist

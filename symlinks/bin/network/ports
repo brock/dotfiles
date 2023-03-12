@@ -1,0 +1,22 @@
+#!/usr/bin/env zsh
+# ports - shows PROCESS and PORT it is listening on
+#
+# This has evolved over the years, and each tool is effective in some ways, so I'm leaving all of them here.
+
+
+# lsof -i | grep LISTEN | awk '{print $1 " " $9}' | awk -F '[ :]' '{print $1 " " $3}'
+
+# netstat -an | grep LISTEN
+
+# shows you a count of clients connected - should be the same on web servers. once this is less than 100, you can assume that this is out of the load balancer
+# netstat -an | grep :80 | wc -l 
+
+# fast check to see if a port is in use, but not always as helpful finding the source:
+# nc -z localhost 80
+
+# Scan a long range of ports quickly
+# nc -z localhost 1-10000
+
+which nmap > /dev/null || brew install nmap
+# use nmap
+nmap -T5 localhost

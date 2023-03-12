@@ -1,0 +1,6 @@
+#!/bin/zsh
+# nuke - completely nuke everything in docker
+
+docker rm -f $(docker ps -aq)
+docker volume rm $(docker volume ls -q)
+docker image rm -f $(docker image ls -q)

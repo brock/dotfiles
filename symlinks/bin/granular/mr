@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+# mr - Merge Request
+# description: a cli tool to create a merge request on Granular's Gitlab
+# assumes the current branch already exists on gitlab
+
+BRANCH=$(git branch | grep \* | cut -d ' ' -f2)
+GITLAB_GROUP=$(git remote -v | head -n1 | awk '{print $2}' | sed 's/.*://g' | sed 's/\/.*//')
+REPO=$(git remote -v | head -n1 | awk '{print $2}' | sed 's/.*\///' | sed 's/\.git//')
+URL="https://gitlab.encirca.auto.pioneer.com/${GITLAB_GROUP}/${REPO}/merge_requests"
+
+open ${URL}

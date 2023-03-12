@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+# myip - show your public ip address, and if it has changed since you last run myip
+
+
+OLD_IP=""
+
+if [[ -r ~/.myip ]]; then
+    OLD_IP=$(cat ~/.myip)
+fi
+
+MY_IP=$(curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+')
+echo $MY_IP > ~/.myip
+
+if [[ -n "${OLD_IP}" ]] && [[ "${OLD_IP}" != "${MY_IP}" ]]; then
+  echo "Old IP Address: ${OLD_IP}"
+fi
+
+echo "${MY_IP}"

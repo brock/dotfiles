@@ -1,0 +1,26 @@
+#!/usr/bin/env zsh -e
+# push [ commit message ]
+# example: push "I changed some of the things"
+# creates a git commit with the message 'I changed some of the things'
+# You don't technically need to wrap your commit message in strings
+#
+# dependencies: glpr
+
+# If I accidentally run the command without any arguments, abort
+[ $# = 0 ] && echo "Please add a commit message" && exit 1
+
+# Anything you pass on the command line after `push` will be read as the commit message
+COMMIT_MESSAGE=$@
+
+# Determine if this it a github or gitlab repo so we can open a pull request on the correct website
+REMOTE_URL=`git config --get remote.origin.url`
+GITHUB_OR_GITLAB='gitlab'
+if [[ $REMOTE_URL == *"github"* ]]; then
+	GITHUB_OR_GITLAB='github'
+fi
+
+# `git add` all files
+# Create a commit
+# Push the code and use the -u so that it creates a branch if it doesn't exist yet
+# If it was gitlab, we'll open the page to create a pull request
+git commit -m "${COMMIT_MESSAGE}" && git push -u && [ $GITHUB_OR_GITLAB == 'gitlab' ] && glpr

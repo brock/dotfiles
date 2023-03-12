@@ -1,0 +1,23 @@
+syntax enable
+set t_Co=256
+set number
+vmap < <gv
+vmap > >gv
+vmap <TAB> >gv
+vmap <S-TAB> <gv
+\\imap <TAB> <C-N>
+ab teh the
+ab clear nohlsearch
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
+silent! call pathogen#runtime_append_all_bundles()
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set showmatch
+set hlsearch
+nnoremap <leader><space> :noh<cr>
+nnoremap ; :
+set rtp+=/usr/local/opt/fzf

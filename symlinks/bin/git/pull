@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+# pull - git pull the current branch and delete any branches that were deleted on the remote (if the local working tree is clean)
+#
+# dependencies: grpd
+
+git pull
+grpd

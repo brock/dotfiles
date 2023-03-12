@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+# adda - add an alias to your dotfiles from the command line
+# Usage: adda newalias 'the full command to run'
+
+DOTFILES=${DOTFILES:=~/dotfiles}
+
+if [[ $# != 2 ]]; then
+    echo "Usage: adda alias_name 'command you want it to run in single or double quotes'"
+else
+    echo "Checking to see if ${1} is already an alias or an executable..."
+    if type ${1} > /dev/null; then    
+        echo "${1} is already in use by: "
+        type ${1}
+        exit 1
+    fi
+    echo "alias $1='$2'" >> ${DOTFILES}/aliases/tmp.sh && echo "alias $1='$2' was added to ${DOTFILES}/aliases/tmp.sh"
+fi

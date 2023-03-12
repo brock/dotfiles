@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+# ips - print all the IP addresses that are connected to this machine
+
+ifconfig | grep "inet " | awk '{ print $2 }'

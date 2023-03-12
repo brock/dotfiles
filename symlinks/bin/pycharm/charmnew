@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+# charmnew - runs git diff, then opens those files in PyCharm, including newly added (untracked) files
+
+FILES=`git status -su | awk '{$1=""; print $0}' | cut -d\  -f2-`
+read -a ARRAY <<<$FILES
+
+OUTPUT=()
+for i in "${ARRAY[@]}"
+do
+  echo $i
+  # if you have the repo mounted somewhere else, change the ouput path here
+  OUTPUT+=(${PWD}/$i)
+done
+
+echo "---"
+echo "${OUTPUT[@]}"
+/usr/local/bin/charm $PWD "${OUTPUT[@]}"

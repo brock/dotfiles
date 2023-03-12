@@ -1,0 +1,28 @@
+#!/bin/zsh
+# install dotfiles
+
+# be paranoid. Only run install from the dotfiles directory. It is okay. Feel better.
+if [ ! -r install ]; then
+    echo "Please run install from the dotfiles directory."
+    exit 1
+fi
+
+# reset PATH.
+if [ ! -r exports/path/PATH.sh ]; then
+    echo "export PATH=$PATH" > original-path.txt;
+    echo "export PATH=$PATH" > exports/path/PATH.sh;
+    echo "This is your first time installing ~/dotfiles."
+    echo "To be safe, we are copying your current PATH environmental variable to original-path.txt in case you need to roll things back."
+    echo "Your PATH variable has been copied to exports/path/PATH.sh and will be used by dotfiles to manage your PATH exported variable going forward."
+    echo "You can safely run the installer again."
+    exit 1
+fi
+
+source functions/install.sh
+zsh exports/path/install.sh
+source exports/path/PATH.sh
+debug "PATH is now: ${PATH}"
+
+zsh templates/install.sh
+zsh symlinks/install.sh
+

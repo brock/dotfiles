@@ -1,0 +1,8 @@
+.DS_Store
+*.sublime*
+node_modules
+.*
+!.gitignore
+exports/path/PATH.sh
+symlinks/bin/applications/*
+!symlinks/bin/applications/README.md

@@ -1,0 +1,26 @@
+#!/bin/zsh
+# get_repo_url [github|granular|gitlab]
+#
+# the first argument is the desired origin (github or gitlab)
+
+if [[ $# -lt 1 ]]; then
+	echo "Please specify the desired repo http url for viewing in a browser"
+	echo "Usage: get_repo_url github"
+	echo "       get_repo_url gitlab"
+	echo 
+	exit 1
+else
+	if [[ ! ($1 = 'github' || $1 = 'gitlab' || $1 = 'granular') ]]; then
+		echo "Argument must be github or gitlab or granular"
+		exit 1
+	else
+		ORIGIN=$1
+	fi
+fi
+
+case $ORIGIN in
+	"github") git remote -v | grep fetch | grep github | sed 's/\(.*github.com\)[:|/]\(.*\).git (fetch)/\2/' | awk {'print "https://github.com/" $1'};;
+	"gitlab") git remote -v | grep fetch | grep gitlab | sed 's/\(.*gitlab.com\)[:|/]\(.*\).git (fetch)/\2/' | awk {'print "https://gitlab.com/" $1'};;
+	"granular") git remote -v | grep fetch | grep "granular.ag" | sed 's/\(.*internal.granular.ag\)[:|/]\(.*\).git (fetch)/\2/' | awk {'print "https://gitlab.internal.granular.ag/" $1'};;
+esac
+
