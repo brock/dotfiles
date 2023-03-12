@@ -1,8 +1,0 @@
-#!/usr/bin/env zsh
-# glogind
-# 
-# logs into onelogin-aws-login for granappdevelopment and default
-
-onelogin-aws-login --arn arn:aws:iam::$(op read op://Corteva/aws/dev/account_id):role/DeveloperSSO --region us-east-1 --profile granappdevelopment
-onelogin-aws-login --arn arn:aws:iam::$(op read op://Corteva/aws/dev/account_id):role/DeveloperSSO --region us-east-1 --profile default
-
