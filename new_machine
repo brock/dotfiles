@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-# new_machine.sh - for use when cloning dotfiles for the first time
+# new_machine - for use when cloning dotfiles for the first time
 
 # if the default shell isn't zsh, change it
 echo "verifying zsh is the default shell"
