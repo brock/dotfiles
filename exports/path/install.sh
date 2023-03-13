@@ -4,7 +4,7 @@
 DOTFILES=${DOTFILES:=~/dotfiles}
 source ${DOTFILES}/functions/debug.sh
 
-for file in $DOTFILES/exports/path/*; do
+for file in $DOTFILES/exports/path/*.sh; do
     if [[ ! -d $file ]] && [[ `basename $file` != "install.sh" ]] && [[ `basename $file` != "PATH.sh" ]]; then
         debug "Reading $file to add lines to the PATH..."
         while read line || [[ -n $line ]]; do
