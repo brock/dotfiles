@@ -4,7 +4,7 @@
 DOTFILES=${DOTFILES:=~/dotfiles}
 
 for file in $DOTFILES/functions/*; do
-    if [[ ! -d $file ]] && [[ `basename $file` != "install.sh" ]]; then
+    if [[ ! -d $file ]] && [[ `basename $file` != "install.sh" ]] && [[ `basename $file` != "README.md" ]]; then
         source $file
     fi
 done
