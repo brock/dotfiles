@@ -7,7 +7,7 @@ Review the [install](./install) script. Running `zsh install` will get things ro
 
 ## Files in root
 * `install` - sets up PATH, exports, symlinks, functions, and symlinks `bin` to your home directory. This can and should be run regularly.
-* `new_machine.sh` - this is only needed when you have a new machine and want to setup the basics.
+* `new_machine` - this is only needed when you have a new machine and want to setup the basics.
 
 > NOTE: "hidden files" (files that have a dot in front of their name like `.personal-token`) are git-ignored by default.
 
