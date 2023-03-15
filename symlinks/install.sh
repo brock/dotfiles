@@ -82,4 +82,17 @@ if [[ ! -L ~/bin/applications/stree ]]; then
 	fi
 fi
 
+debug "Verifying Sublime Text settings are synchronized"
+if [[ ! -L ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User ]]; then
+	if [[ -d /Applications/Sublime\ Text.app ]]; then
+		rm -rf ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+		echo "Forcibly Symlinking ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User for the first time"
+		ln -Fs ~/dotfiles/symlinks/Library/Application\ Support/Sublime\ Text\ 3/Packages/User ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/
+	else
+		echo "Sublime Text is not installed in /Applications"
+	fi
+fi
+
+
+
 echo "Symlinking complete"

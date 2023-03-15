@@ -1,0 +1,15 @@
+{
+	"font_size": 16,
+	// Set to true to automatically save files when switching to a different file
+	// or application
+	"save_on_focus_lost": true,
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+	// The number of spaces a tab is considered equal to
+	"tab_size": 4,
+
+	// Set to true to insert spaces when tab is pressed
+	"translate_tabs_to_spaces": false,
+}

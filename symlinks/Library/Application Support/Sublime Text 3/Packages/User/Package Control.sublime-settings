@@ -1,0 +1,14 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Clickable URLs",
+		"MarkdownPreview",
+		"Package Control",
+		"SideBarEnhancements",
+		"Terraform",
+	],
+}
