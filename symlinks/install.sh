@@ -71,28 +71,31 @@ if [[ ! -L ~/.pip ]]; then
     ln -s $DOTFILES/symlinks/pip ~/.pip
 fi
 
-##### SourceTree
-debug "Verifying ~/bin/stree symlink"
-if [[ ! -L ~/bin/applications/stree ]]; then
-	if [[ -x /Applications/Sourcetree.app/Contents/Resources/stree ]]; then
-		echo "Symlinking ~/bin/applications/stree"
-		ln -s /Applications/Sourcetree.app/Contents/Resources/stree ~/bin/applications/stree
-	else
-		echo "SourceTree is not installed in /Applications"
+##### OSX Applications
+
+if [[ $OSTYPE =~ darwin ]]; then
+	##### SourceTree
+	debug "Verifying ~/bin/stree symlink"
+	if [[ ! -L ~/bin/applications/stree ]]; then
+		if [[ -x /Applications/Sourcetree.app/Contents/Resources/stree ]]; then
+			echo "Symlinking ~/bin/applications/stree"
+			ln -s /Applications/Sourcetree.app/Contents/Resources/stree ~/bin/applications/stree
+		else
+			echo "SourceTree is not installed in /Applications"
+		fi
+	fi
+
+	debug "Verifying Sublime Text settings are synchronized"
+	if [[ ! -L ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User ]]; then
+		if [[ -d /Applications/Sublime\ Text.app ]]; then
+			rm -rf ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+			echo "Forcibly Symlinking ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User for the first time"
+			ln -Fs ~/dotfiles/symlinks/Library/Application\ Support/Sublime\ Text\ 3/Packages/User ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/
+		else
+			echo "Sublime Text is not installed in /Applications"
+		fi
 	fi
 fi
-
-debug "Verifying Sublime Text settings are synchronized"
-if [[ ! -L ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User ]]; then
-	if [[ -d /Applications/Sublime\ Text.app ]]; then
-		rm -rf ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
-		echo "Forcibly Symlinking ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User for the first time"
-		ln -Fs ~/dotfiles/symlinks/Library/Application\ Support/Sublime\ Text\ 3/Packages/User ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/
-	else
-		echo "Sublime Text is not installed in /Applications"
-	fi
-fi
-
 
 
 echo "Symlinking complete"
