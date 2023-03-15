@@ -1,2 +1,5 @@
 [onelogin - brockangelo@granular.ag]
-secret=op://Private/OneLogin/add more/Google Authenticator Secret Key
+secret=op://Corteva/OneLogin-work/secrets/google_authenticator_secret_key
+
+[aws - brockangelo@gmail.com]
+secret=op://Private/aws-personal/2FA/password

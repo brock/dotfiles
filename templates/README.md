@@ -23,6 +23,13 @@ This would output each item in JSON format. Select the reference from the follow
 
 Then running `op read op://Corteva/OneLogin/credential` provides the credential on the command line.
 
+> NOTE: An issue that I've been seeing with `op v2.14.0` arises when you have a record in 1Password with the same name, even across vaults. For example, in my work vault, I have a `aws` record, and in my personal vault I have a record called `AWS`. Using `op inject`, even with the reference to the full path including the vault results in this error:
+> ```txt
+> Creating ~/.gauth from dotfiles/templates/gauth.tpl 1Password template
+> [ERROR] 2023/03/15 09:07:06 could not resolve item UUID for item AWS
+> ```
+> At this point, the only resolution is to give the records unique names. `aws-work` and `aws-personal`.
+
 ## Use in templates
 
 Inside your template, you'll include the reference and commit this to source control:
