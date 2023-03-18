@@ -64,6 +64,12 @@ if [[ ! -L ~/.default-python-packages ]]; then
     ln -s $DOTFILES/symlinks/default-python-packages ~/.default-python-packages
 fi
 
+debug "Verifying ~/.default-npm-packages symlink"
+if [[ ! -L ~/.default-npm-packages ]]; then
+	echo "Symlinking ~/.default-npm-packages"
+    ln -s $DOTFILES/symlinks/default-npm-packages ~/.default-npm-packages
+fi
+
 ##### python/pip
 debug "Verifying ~/.pip symlink"
 if [[ ! -L ~/.pip ]]; then
