@@ -50,13 +50,13 @@ source $ZSH/oh-my-zsh.sh
 setopt hist_expire_dups_first
 setopt hist_find_no_dups
 
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /Users/brock/dotfiles/symlinks/bin/granular/terraform terraform
+# autoload -U +X bashcompinit && bashcompinit
+# complete -o nospace -C /Users/brock/dotfiles/symlinks/bin/granular/terraform terraform
 
 # enable command completion / initially added after adding jira-cli with brew
-autoload -U compinit; compinit
+# autoload -U compinit; compinit
 
 # adding to support the python argcomplete used with ansible
 # https://kislyuk.github.io/argcomplete/#zsh-support
-autoload -U bashcompinit
-bashcompinit
+# autoload -U bashcompinit
+# bashcompinit
