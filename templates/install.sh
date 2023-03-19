@@ -36,4 +36,12 @@ if [[ ! -r ~/.ssh/config ]]; then
     op inject -i $DOTFILES/templates/ssh_config.tpl -o ~/.ssh/config
 fi
 
+##### Exports (environment variables) with secrets
+debug "Verifying ~/dotfiles/exports/.gitlab.sh exists"
+if [[ ! -r $DOTFILES/exports/.gitlab.sh ]]; then
+	echo "Creating ~/dotfiles/exports/.gitlab.sh from dotfiles/templates/exports/gitlab.sh.tpl 1Password template"
+    op inject -i $DOTFILES/templates/exports/gitlab.sh.tpl -o $DOTFILES/exports/.gitlab.sh
+fi
+
+
 echo "Templates completed"
