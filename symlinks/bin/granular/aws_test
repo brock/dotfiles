@@ -3,5 +3,5 @@
 
 set -e
 
-onelogin-aws-login --arn arn:aws:iam::$(op read op://Corteva/aws/test/account_id):role/DeveloperSSO --region us-east-1 --profile granapptest
+onelogin-aws-login --arn arn:aws:iam::$(op read op://Corteva/aws-work/test/account_id):role/DeveloperSSO --region us-east-1 --profile granapptest
 export AWS_PROFILE=granapptest
