@@ -30,7 +30,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 #  zsh-autosuggestions docker docker-compose zsh-completions
-plugins=(zsh-syntax-highlighting docker docker-compose) # zsh-autosuggestions)
+plugins=(docker docker-compose zsh-syntax-highlighting) # zsh-autosuggestions
 
 source $ZSH/oh-my-zsh.sh
 
