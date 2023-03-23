@@ -2,9 +2,8 @@
 # Granular Tools
 
 alias cdg='cd ~/granular'
-alias cdc='cd ~/granular/cat'
-alias cdb='cd ~/granular/bacon'
-alias rsuc='cd ~/granular/cat/slack-to-teams/roles-svc-users-consumer'
+alias cdc='cd ~/granular/shared-foundations/core-accessibility'
+alias rsuc='cd ~/granular/shared-foundations/core-accessibility/roles-svc-users-consumer'
 alias cdcdt='cd ~/granular/cat/brock_dotfiles'
 
 # JIRA
