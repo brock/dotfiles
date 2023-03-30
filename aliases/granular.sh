@@ -16,3 +16,5 @@ alias pip_set='ln -s ~/dotfiles/symlinks/pip ~/.pip'
 alias aws_dev='onelogin-aws-login --arn arn:aws:iam::$(op read op://Corteva/aws-work/dev/account_id):role/DeveloperSSO --region us-east-1 --profile granappdevelopment && export AWS_PROFILE=granappdevelopment'
 alias aws_test='onelogin-aws-login --arn arn:aws:iam::$(op read op://Corteva/aws-work/test/account_id):role/ReadOnlySSO --region us-east-1 --profile granapptest && export AWS_PROFILE=granapptest'
 alias aws_prod='onelogin-aws-login --arn arn:aws:iam::$(op read op://Corteva/aws-work/prod/account_id):role/ReadOnlySSO --region us-east-1 --profile granappproduction && export AWS_PROFILE=granappproduction'
+
+alias snip='open https://gitlab.internal.granular.ag/-/snippets/new'
