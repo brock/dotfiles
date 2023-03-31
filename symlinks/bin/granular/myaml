@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
-# glpr - Gitlab Pull Request (Merge Request)
-# Does not work with Github since they call them Pull Requests
-# description: a cli tool to create a merge request on granular gitlab
+# myaml - View the Merged Yaml
+# description: opens the current branch's "View Merged YAML" page
+# This is really helpful when inspecting imported YAML documents
 # aborts if the current branch is not on gitlab
 
 set -e
@@ -13,7 +13,6 @@ git ls-remote --exit-code --heads ${GIT_REMOTE_V} ${BRANCH} || (echo "${BRANCH} 
 DOMAIN=$(echo ${GIT_REMOTE_V} | sed "s/git@\(.*\):.*.git/\1/")
 GITLAB_GROUP=$(echo ${GIT_REMOTE_V} | sed 's/.*://g' |  sed -E 's/(.*)(\/.*\.git)/\1/')
 REPO=$(echo ${GIT_REMOTE_V} | sed 's/.*://g' | sed 's/\.git//')
-URL="https://${DOMAIN}/${REPO}/merge_requests/new?utf8=%E2%9C%93"
-URL+="&merge_request%5Bsource_branch%5D=${BRANCH}"
+URL="https://${DOMAIN}/${REPO}/-/ci/editor?branch_name=${BRANCH}&tab=3"
 
 open $URL
