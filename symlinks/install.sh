@@ -71,10 +71,10 @@ if [[ ! -L ~/.default-npm-packages ]]; then
 fi
 
 ##### python/pip
-debug "Verifying ~/.pip symlink"
-if [[ ! -L ~/.pip ]]; then
-	echo "Symlinking ~/.pip"
-    ln -s $DOTFILES/symlinks/pip ~/.pip
+debug "Verifying ~/.config/pip symlink"
+if [[ ! -L ~/.config/pip ]]; then
+	echo "Symlinking ~/.config/pip"
+    ln -s $DOTFILES/symlinks/config/pip ~/.config/pip
 fi
 
 ##### OSX Applications
