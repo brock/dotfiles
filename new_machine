@@ -16,16 +16,20 @@ echo "looking for oh-my-zsh"
 [[ ! -d ~/.oh-my-zsh/themes ]] && mkdir ~/.oh-my-zsh/themes
 
 echo "Checking for SSH key."
-[[ -f ~/.ssh/id_rsa.pub ]] || {
+[[ -f ~/.ssh/id_rsa.pub || -f ~/.ssh/id_ed25519.pub ]] || {
   echo "creating ssh key..."
   ssh-keygen -t rsa
   [[ -f ~/.ssh/id_rsa.pub ]] && cat ~/.ssh/id_rsa.pub | pbcopy
   open https://github.com/account/ssh
 }
 
-which brew || {
+which brew > /dev/null || {
   echo "Installing Homebrew, a good OS X package manager ..."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 }
+
+which op > /dev/null || (echo "Installing 1Password CLI..." && brew install --cask 1password/tap/1password-cli && echo "Enable the CLI in 1P, then sign into op by running 'op signin'")
+which asdf > /dev/null || (echo "Installing asdf..." && git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.3)
+
 
 xcode-select --install > /dev/null

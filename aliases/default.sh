@@ -13,7 +13,7 @@ alias e='exit'
 
 # Frequently-used directories
 alias cdd='cd ~/Desktop'
-alias cdr='cd ~/research'
+alias cdr='(test -d ~/research || mkdir ~/research) && cd ~/research'
 
 
 # Easy navigation

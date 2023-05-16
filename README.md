@@ -47,3 +47,8 @@ Symlinks are setup in [symlinks/install.sh](./symlinks/install.sh) which is only
 #### symlinks/bin
 The entire [symlinks/bin](./symlinks/bin) directory gets symlinked to the user's `$HOME/bin` directory, and each sub-directory is then added to the `~/dotfiles/exports/path/PATH.sh` when you run the [~/dotfiles/install](./install) script.  
 
+
+## Known Issues
+
+* `op` requires `op signin`
+* `stree` requires `chown-ing` `/usr/local/bin` to the current user before it will install the command line tools. They have no user-elevation privilege functionality (apparently?)
