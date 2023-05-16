@@ -52,3 +52,4 @@ The entire [symlinks/bin](./symlinks/bin) directory gets symlinked to the user's
 
 * `op` requires `op signin`
 * `stree` requires `chown-ing` `/usr/local/bin` to the current user before it will install the command line tools. They have no user-elevation privilege functionality (apparently?)
+	* `sudo chown $(whoami): /usr/local/bin` then SourceTree --> Preferences --> Install Command-Line Tools --> then `sudo chown root: /usr/local/bin` to set it back. Not sure if this is the best approach, but it seems to work for now.
