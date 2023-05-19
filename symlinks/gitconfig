@@ -16,7 +16,10 @@
 	untracked = cyan
 [user]
 	name = Brock Angelo
-	email = brock.angelo@corteva.com
+	email = brockangelo@gmail.com
+
+[includeIf "gitdir:~/granular/**"]
+    path = ~/.gitconfig.corteva
 
 [github]
     user = brock

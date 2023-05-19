@@ -38,6 +38,12 @@ if [[ ! -L ~/.gitconfig ]]; then
     ln -s $DOTFILES/symlinks/gitconfig ~/.gitconfig
 fi
 
+debug "Verifying ~/.gitconfig.corteva symlink"
+if [[ ! -L ~/.gitconfig.corteva ]]; then
+	echo "Symlinking ~/.gitconfig.corteva"
+    ln -s $DOTFILES/symlinks/gitconfig.corteva ~/.gitconfig.corteva
+fi
+
 ##### vim
 debug "Verifying ~/.vimrc symlink"
 if [[ ! -L ~/.vimrc ]]; then
