@@ -44,3 +44,8 @@
 	recent = branch --sort=-committerdate --format=\"%(committerdate:relative)%09%(refname:short)\"
 #[diff]
 	#external = difft
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
