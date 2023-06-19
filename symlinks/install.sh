@@ -17,6 +17,12 @@ if [[ ! -L ~/.zshrc ]]; then
     ln -s $DOTFILES/symlinks/zsh/zshrc.sh ~/.zshrc
 fi
 
+debug "Verifying ~/.zshenv symlink"
+if [[ ! -L ~/.zshenv ]]; then
+	echo "Symlinking ~/.zshenv"
+    ln -s $DOTFILES/symlinks/zsh/zshenv.sh ~/.zshenv
+fi
+
 debug "Verifying ~/.oh-my-zsh/themes/smt-mod.zsh-theme symlink"
 if [[ ! -L ~/.oh-my-zsh/themes/smt-mod.zsh-theme ]]; then
 	echo "Symlinking ~/.oh-my-zsh/themes/smt-mod.zsh-theme"
