@@ -21,13 +21,6 @@ if [[ ! -r ~/.terraformrc ]]; then
 fi
 
 
-##### Corteva OneLogin config
-debug "Verifying ~/.onelogin-aws.config exists"
-if [[ ! -r ~/.onelogin-aws.config ]]; then
-	echo "Creating ~/.onelogin-aws.config from dotfiles/templates/onelogin-aws.config.tpl 1Password template"
-    op inject -i $DOTFILES/templates/onelogin-aws.config.tpl -o ~/.onelogin-aws.config
-fi
-
 ##### SSH Config
 debug "Verifying ~/.ssh/config exists"
 if [[ ! -r ~/.ssh/config ]]; then
