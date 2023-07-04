@@ -20,7 +20,6 @@ if [[ ! -r ~/.terraformrc ]]; then
     op inject -i $DOTFILES/templates/terraformrc.tpl -o ~/.terraformrc
 fi
 
-
 ##### SSH Config
 debug "Verifying ~/.ssh/config exists"
 if [[ ! -r ~/.ssh/config ]]; then
