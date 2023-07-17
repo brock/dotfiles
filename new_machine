@@ -30,6 +30,7 @@ which brew > /dev/null || {
 
 which op > /dev/null || (echo "Installing 1Password CLI..." && brew install --cask 1password/tap/1password-cli && echo "Enable the CLI in 1P, then sign into op by running 'op signin'")
 which asdf > /dev/null || (echo "Installing asdf..." && git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.3)
+which jq > /dev/null || (echo "Installing jq..." && brew install jq)
 
 
 xcode-select --install > /dev/null
