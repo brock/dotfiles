@@ -1,18 +1,52 @@
 #!/usr/bin/env zsh
-# myip - show your public ip address, and if it has changed since you last run myip
+# myip - show your public ip address, and if it has changed since you last ran myip
 
+JSON_FILE="${DOTFILES}/.myip.json"
 
-OLD_IP=""
+# Function to get the current date in YYYY-MM-DD HH:mm:ss format
+get_current_date() {
+  date +"%Y-%m-%d %H:%M:%S"
+}
 
-if [[ -r ~/.myip ]]; then
-    OLD_IP=$(cat ~/.myip)
+# Function to fetch the IP address from checkip.dyndns.org
+get_current_ip() {
+  curl -s checkip.dyndns.org | grep -oE '[0-9\.]+'
+}
+
+# Check if $JSON_FILE file exists and is not empty, then read the contents
+if [[ -f ${JSON_FILE} ]] && [[ -s ${JSON_FILE} ]]; then
+  # Read the JSON data
+  JSON_DATA=$(cat ${JSON_FILE})
+
+  # Extract the existing IP address and date
+  OLD_IP=$(echo "${JSON_DATA}" | jq -r '.ip')
+  OLD_DATE=$(echo "${JSON_DATA}" | jq -r '.date')
+
+  # Get the current IP address
+  CURRENT_IP=$(get_current_ip)
+
+  # Check if the IP address has changed
+  if [[ "${CURRENT_IP}" != "${OLD_IP}" ]]; then
+    # Get the current date
+    CURRENT_DATE=$(get_current_date)
+
+    # Update the JSON data with the new IP address and date
+    UPDATED_JSON=$(echo "${JSON_DATA}" | jq --arg ip "${CURRENT_IP}" --arg date "${CURRENT_DATE}" '.ip = $ip | .date = $date')
+    echo "${UPDATED_JSON}" > ${JSON_FILE}
+
+    # Report when the IP address was modified
+    echo "IP address changed from $OLD_IP to ${CURRENT_IP} on ${CURRENT_DATE}."
+  else
+    echo "${CURRENT_IP} has been your IP since ${OLD_DATE}"
+  fi
+else
+  # If $JSON_FILE does not exist or is empty, create it and save the current IP address and date
+  touch ${JSON_FILE}
+  CURRENT_IP=$(get_current_ip)
+  CURRENT_DATE=$(get_current_date)
+  echo "{\"ip\": \"${CURRENT_IP}\", \"date\": \"${CURRENT_DATE}\"}" | jq --arg ip "${CURRENT_IP}" --arg date "${CURRENT_DATE}" '.ip = $ip | .date = $date' > ${JSON_FILE}
+
+  # Output the current IP address
+  echo "Current IP address: $(get_current_ip)"
 fi
 
-MY_IP=$(curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+')
-echo $MY_IP > ~/.myip
-
-if [[ -n "${OLD_IP}" ]] && [[ "${OLD_IP}" != "${MY_IP}" ]]; then
-  echo "Old IP Address: ${OLD_IP}"
-fi
-
-echo "${MY_IP}"
