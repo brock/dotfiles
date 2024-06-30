@@ -39,3 +39,6 @@ alias sshc='vi ~/.ssh/config'
 
 # Terraform
 alias tf='terraform'
+
+# Recent Commands
+alias recent="history | tr -s ' ' | cut -d' ' -f5- | sort | uniq -c | sort -nr | head -5"

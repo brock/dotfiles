@@ -1,4 +1,0 @@
-#!/usr/bin/env zsh
-# gh - open the current repo on Github
-
-open_repo_in_browser github

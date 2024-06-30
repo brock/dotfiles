@@ -21,7 +21,7 @@ alias paste='pbpaste'
 
 # Application-specific
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-alias ws='wstorm'
+alias ws='webstorm'
 alias drop='cd ~/Dropbox'
 
 # Copy Last command

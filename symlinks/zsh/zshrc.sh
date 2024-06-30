@@ -30,7 +30,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 #  zsh-autosuggestions docker docker-compose zsh-completions
-plugins=(docker docker-compose zsh-syntax-highlighting) # zsh-autosuggestions
+plugins=(zsh-syntax-highlighting per-directory-history)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -60,3 +60,10 @@ setopt hist_find_no_dups
 # https://kislyuk.github.io/argcomplete/#zsh-support
 # autoload -U bashcompinit
 # bashcompinit
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Created by `pipx` on 2024-06-04 17:05:34
+export PATH="$PATH:/Users/brockangelo/.local/bin"

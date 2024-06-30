@@ -8,10 +8,10 @@
 		"Vintage",
 	],
 	// The number of spaces a tab is considered equal to
-	"tab_size": 4,
+	"tab_size": 2,
 
 	// Set to true to insert spaces when tab is pressed
-	"translate_tabs_to_spaces": false,
+	"translate_tabs_to_spaces": true,
 
 	// Set to false to disable scrolling past the end of the buffer.
 	// On Mac, this value is overridden in the platform specific settings, so
@@ -20,5 +20,6 @@
 	// This setting may also be set to a number between 0.0 and 1.0 to specify
 	// how much scrolling past the end of the buffer should be allowed. 0.5
 	// scrolls halfway and 0.0 is the same as false.
-	"scroll_past_end": true,
+	"scroll_past_end": false,
+	"index_files": true,
 }

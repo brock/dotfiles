@@ -6,10 +6,13 @@
 	"installed_packages":
 	[
 		"Clickable URLs",
+		"Dockerfile Syntax Highlighting",
+		"LaTeX Word Count",
 		"MarkdownPreview",
 		"Package Control",
 		"Pretty JSON",
 		"SideBarEnhancements",
 		"Terraform",
+		"Word Count",
 	],
 }
