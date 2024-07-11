@@ -2,6 +2,7 @@
 node_modules
 .*
 !.gitignore
+!.help
 exports/path/PATH.sh
 symlinks/bin/applications/*
 !symlinks/bin/applications/README.md
