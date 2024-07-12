@@ -8,7 +8,7 @@ function help_exists() {
 }
 
 function show_help() {
-  help_exists && echo "🙋 "
+  help_exists && echo "🙋"
 }
 
 function help() {

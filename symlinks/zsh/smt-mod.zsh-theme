@@ -8,7 +8,7 @@
 
 ### RPROMPT Styled function responses
 function prompt_char() {
-  git branch >/dev/null 2>/dev/null && echo "%{$fg[green]%} ❯ %{$reset_color%}" && return
+  git branch >/dev/null 2>/dev/null && echo "%{$fg[green]%} $(show_help || echo "❯") %{$reset_color%}" && return
   hg root >/dev/null 2>/dev/null && echo "%{$fg_bold[red]%}☿%{$reset_color%}" && return
   echo "%{$fg[green]%}❯ %{$reset_color%}"
 }
@@ -42,7 +42,7 @@ ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL="%{$fg[cyan]%}"
 
 
 
-PROMPT='%{$fg[cyan]%}%~ %{$reset_color%}$(show_help)$(git_prompt_info)
+PROMPT='%{$fg[cyan]%}%~ %{$reset_color%}$(git_prompt_info)
 $(git_prompt_short_sha)%{$reset_color%}$(prompt_char)'
 
 RPROMPT='${return_status}%{$reset_color%}'
