@@ -32,6 +32,8 @@ HIST_STAMPS="yyyy-mm-dd"
 #  zsh-autosuggestions docker docker-compose zsh-completions
 plugins=(zsh-syntax-highlighting per-directory-history)
 
+# auto update oh-my-zsh. This must be placed before loading oh-my-zsh.sh
+zstyle ':omz:update' mode auto
 source $ZSH/oh-my-zsh.sh
 
 # source the alias launcher
