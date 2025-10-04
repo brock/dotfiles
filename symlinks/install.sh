@@ -77,6 +77,14 @@ if [[ ! -L ~/.config/pip ]]; then
     ln -s $DOTFILES/symlinks/config/pip ~/.config/pip
 fi
 
+##### LaunchAgents
+debug "Verifying ~/Library/LaunchAgents/com.brockangelo.maintainsmb.plist symlink"
+if [[ ! -L ~/Library/LaunchAgents/com.brockangelo.maintainsmb.plist ]]; then
+	echo "Symlinking ~/Library/LaunchAgents/com.brockangelo.maintainsmb.plist"
+    ln -s $DOTFILES/symlinks/Library/LaunchAgents/com.brockangelo.maintainsmb.plist ~/Library/LaunchAgents/com.brockangelo.maintainsmb.plist
+fi
+
+
 ##### OSX Applications
 
 if [[ $OSTYPE =~ darwin ]]; then
