@@ -71,6 +71,6 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$PATH:/Users/brockangelo/.local/bin"
 
 # muxm tab completion
-source "$HOME/.muxm/muxm-completion.bash"
+[ -d "$HOME/.muxm" ] && source "$HOME/.muxm/muxm-completion.bash"
 # muxm requirement
 export TESSDATA_PREFIX="/opt/homebrew/share/tessdata"
