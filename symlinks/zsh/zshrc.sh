@@ -69,3 +69,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # Created by `pipx` on 2024-06-04 17:05:34
 export PATH="$PATH:/Users/brockangelo/.local/bin"
+
+# muxm tab completion
+source "$HOME/.muxm/muxm-completion.bash"
+# muxm requirement
+export TESSDATA_PREFIX="/opt/homebrew/share/tessdata"
