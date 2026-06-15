@@ -1,2 +1,0 @@
-launchctl stop com.brockangelo.maintainsmb
-launchctl start com.brockangelo.maintainsmb
