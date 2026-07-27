@@ -10,7 +10,6 @@ source ${DOTFILES}/aliases/default.sh
 source ${DOTFILES}/aliases/docker.sh
 source ${DOTFILES}/aliases/git.sh
 source ${DOTFILES}/aliases/node.sh
-source ${DOTFILES}/aliases/granular.sh
 source ${DOTFILES}/aliases/utils.sh
 
 if [[ $OSTYPE =~ darwin ]]; then

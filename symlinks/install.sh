@@ -45,45 +45,12 @@ if [[ ! -L ~/.vimrc ]]; then
     ln -s $DOTFILES/symlinks/vimrc ~/.vimrc
 fi
 
-##### asdf
-debug "Verifying ~/.asdfrc symlink"
-if [[ ! -L ~/.asdfrc ]]; then
-	echo "Symlinking ~/.asdfrc"
-    ln -s $DOTFILES/symlinks/asdfrc ~/.asdfrc
-fi
-
-debug "Verifying ~/.tool-versions symlink"
-if [[ ! -L ~/.tool-versions ]]; then
-	echo "Symlinking ~/.tool-versions"
-    ln -s $DOTFILES/symlinks/tool-versions ~/.tool-versions
-fi
-
-debug "Verifying ~/.default-python-packages symlink"
-if [[ ! -L ~/.default-python-packages ]]; then
-	echo "Symlinking ~/.default-python-packages"
-    ln -s $DOTFILES/symlinks/default-python-packages ~/.default-python-packages
-fi
-
-debug "Verifying ~/.default-npm-packages symlink"
-if [[ ! -L ~/.default-npm-packages ]]; then
-	echo "Symlinking ~/.default-npm-packages"
-    ln -s $DOTFILES/symlinks/default-npm-packages ~/.default-npm-packages
-fi
-
 ##### python/pip
 debug "Verifying ~/.config/pip symlink"
 if [[ ! -L ~/.config/pip ]]; then
 	echo "Symlinking ~/.config/pip"
     ln -s $DOTFILES/symlinks/config/pip ~/.config/pip
 fi
-
-##### LaunchAgents
-debug "Verifying ~/Library/LaunchAgents/com.brockangelo.maintainsmb.plist symlink"
-if [[ ! -L ~/Library/LaunchAgents/com.brockangelo.maintainsmb.plist ]]; then
-	echo "Symlinking ~/Library/LaunchAgents/com.brockangelo.maintainsmb.plist"
-    ln -s $DOTFILES/symlinks/Library/LaunchAgents/com.brockangelo.maintainsmb.plist ~/Library/LaunchAgents/com.brockangelo.maintainsmb.plist
-fi
-
 
 ##### OSX Applications
 

@@ -7,6 +7,7 @@ alias ea='vi ~/dotfiles/aliases'
 alias ff='edit'
 alias dot='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl ~/dotfiles'
 alias cddot="cd ~/dotfiles"
+alias cdra="cd ~/research/ansible"
 
 # Exit the terminal
 alias e='exit'

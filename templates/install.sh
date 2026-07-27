@@ -6,20 +6,6 @@ DOTFILES=${DOTFILES:=~/dotfiles}
 source ${DOTFILES}/functions/debug.sh
 
 
-##### Alfred - Google Authenticator
-debug "Verifying ~/.gauth exists"
-if [[ ! -r ~/.gauth ]]; then
-	echo "Creating ~/.gauth from dotfiles/templates/gauth.tpl 1Password template"
-    op inject -i $DOTFILES/templates/gauth.tpl -o ~/.gauth
-fi
-
-##### terraform
-debug "Verifying ~/.terraformrc exists"
-if [[ ! -r ~/.terraformrc ]]; then
-	echo "Creating ~/.terraformrc from dotfiles/templates/terraformrc.tpl 1Password template"
-    op inject -i $DOTFILES/templates/terraformrc.tpl -o ~/.terraformrc
-fi
-
 ##### SSH Config
 debug "Verifying ~/.ssh/config exists"
 if [[ ! -r ~/.ssh/config ]]; then
@@ -27,13 +13,5 @@ if [[ ! -r ~/.ssh/config ]]; then
 	echo "Creating ~/.ssh/config from dotfiles/templates/ssh_config.tpl 1Password template"
     op inject -i $DOTFILES/templates/ssh_config.tpl -o ~/.ssh/config
 fi
-
-##### Exports (environment variables) with secrets
-debug "Verifying ~/dotfiles/exports/.gitlab.sh exists"
-if [[ ! -r $DOTFILES/exports/.gitlab.sh ]]; then
-	echo "Creating ~/dotfiles/exports/.gitlab.sh from dotfiles/templates/exports/gitlab.sh.tpl 1Password template"
-    op inject -i $DOTFILES/templates/exports/gitlab.sh.tpl -o $DOTFILES/exports/.gitlab.sh
-fi
-
 
 echo "Templates completed"

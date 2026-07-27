@@ -16,7 +16,6 @@ alias k='killall'
 alias md5sum='md5 -r'
 
 # Custom shortcuts
-alias del='trash'
 alias paste='pbpaste'
 
 # Application-specific

@@ -74,3 +74,6 @@ export PATH="$PATH:/Users/brockangelo/.local/bin"
 [ -d "$HOME/.muxm" ] && source "$HOME/.muxm/muxm-completion.bash"
 # muxm requirement
 export TESSDATA_PREFIX="/opt/homebrew/share/tessdata"
+
+# 1Password CLI Completion
+eval "$(op completion zsh)"; compdef _op op
