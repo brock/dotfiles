@@ -15,6 +15,7 @@ alias e='exit'
 # Frequently-used directories
 alias cdd='cd ~/Desktop'
 alias cdr='(test -d ~/research || mkdir ~/research) && cd ~/research'
+alias cdra="cd ~/research/ansible"
 
 
 # Easy navigation
