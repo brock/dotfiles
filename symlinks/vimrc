@@ -21,3 +21,7 @@ set hlsearch
 nnoremap <leader><space> :noh<cr>
 nnoremap ; :
 set rtp+=/usr/local/opt/fzf
+
+" Force Vim to use the sshconfig syntax for any SSH configuration file
+autocmd BufNewFile,BufRead */.ssh/config,*/.ssh/conf.d/*,ssh_config setf sshconfig
+
