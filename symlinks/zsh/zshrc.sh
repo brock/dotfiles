@@ -43,7 +43,7 @@ source $ZSH/oh-my-zsh.sh
 [[ -r ~/dotfiles/exports/path/PATH.sh ]] && source ~/dotfiles/exports/path/PATH.sh
 
 # source all files in the exports directory
-[[ -r ~/dotfiles/exports/index.sh ]] && source ~/dotfiles/exports/index.sh
+# [[ -r ~/dotfiles/exports/index.sh ]] && source ~/dotfiles/exports/index.sh
 
 # source all functions in the exports directory
 [[ -r ~/dotfiles/functions/install.sh ]] && source ~/dotfiles/functions/install.sh
