@@ -77,3 +77,10 @@ export TESSDATA_PREFIX="/opt/homebrew/share/tessdata"
 
 # 1Password CLI Completion
 eval "$(op completion zsh)"; compdef _op op
+
+# Allow local overrides of the zshrc
+# This file is in git so it gets included when cloning the repo
+# Changes are not tracked. 
+# `git update-index --skip-worktree local-overrides.sh`
+# You can see the skipped files using `git ls-files -v | grep ^S`
+[[ -r ~/dotfiles/symlinks/zsh/local-overrides.sh ]] && source ~/dotfiles/symlinks/zsh/local-overrides.sh
