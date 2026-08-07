@@ -3,20 +3,12 @@
 # Default Aliases
 
 # edit dotfiles aliases and functions
-alias ea='vi ~/dotfiles/aliases'
-alias ff='edit'
-alias dot='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl ~/dotfiles'
 alias cddot="cd ~/dotfiles"
+alias cdr='(test -d ~/research || mkdir ~/research) && cd ~/research'
 alias cdra="cd ~/research/ansible"
 
 # Exit the terminal
 alias e='exit'
-
-# Frequently-used directories
-alias cdd='cd ~/Desktop'
-alias cdr='(test -d ~/research || mkdir ~/research) && cd ~/research'
-alias cdra="cd ~/research/ansible"
-
 
 # Easy navigation
 alias ....='cd ../../..'
@@ -38,9 +30,6 @@ alias whicg='which'
 
 # SSH #
 alias sshc='vi ~/.ssh/config'
-
-# Terraform
-alias tf='terraform'
 
 # Recent Commands
 alias recent="history | tr -s ' ' | cut -d' ' -f5- | sort | uniq -c | sort -nr | head -5"
