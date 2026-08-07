@@ -2,26 +2,6 @@
 ## Setup Symlinks
 
 DOTFILES=${DOTFILES:=~/dotfiles}
-source ${DOTFILES}/functions/debug.sh
-
-##### zsh
-debug "Verifying ~/.zprofile symlink"
-if [[ ! -L ~/.zprofile ]]; then
-	echo "Symlinking ~/.zprofile"
-    ln -s $DOTFILES/symlinks/zsh/zprofile.sh ~/.zprofile
-fi
-
-debug "Verifying ~/.zshrc symlink"
-if [[ ! -L ~/.zshrc ]]; then
-	echo "Symlinking ~/.zshrc"
-    ln -s $DOTFILES/symlinks/zsh/zshrc.sh ~/.zshrc
-fi
-
-debug "Verifying ~/.oh-my-zsh/themes/smt-mod.zsh-theme symlink"
-if [[ ! -L ~/.oh-my-zsh/themes/smt-mod.zsh-theme ]]; then
-	echo "Symlinking ~/.oh-my-zsh/themes/smt-mod.zsh-theme"
-    ln -s $DOTFILES/symlinks/zsh/smt-mod.zsh-theme ~/.oh-my-zsh/themes/smt-mod.zsh-theme
-fi
 
 ##### dotfiles/symlinks/bin
 debug "Verifying ~/bin symlink"
@@ -38,12 +18,6 @@ if [[ ! -L ~/.gitconfig ]]; then
     ln -s $DOTFILES/symlinks/gitconfig ~/.gitconfig
 fi
 
-##### vim
-debug "Verifying ~/.vimrc symlink"
-if [[ ! -L ~/.vimrc ]]; then
-	echo "Symlinking ~/.vimrc"
-    ln -s $DOTFILES/symlinks/vimrc ~/.vimrc
-fi
 
 ##### python/pip
 debug "Verifying ~/.config/pip symlink"

@@ -13,9 +13,6 @@ Review the [install](./install) script. Running `zsh install` will get things ro
 
 ## Directories in root
 
-### aliases
-The aliases directory contains the [aliases/index.sh](./aliases/index.sh) that sources all other alias files, and is called by the `.zshrc` file located in [symlinks/zsh/zshrc.sh](./symlinks/zsh/zshrc.sh). 
-
 ### exports
 * All files in the root of [exports](./exports) get sourced by `~/.zshrc` except for the `exports/path/` directory.
 * All environment variables are managed in [exports](./exports), and hidden files are gitignored in case you want to keep secrets in environment variables.
@@ -35,10 +32,6 @@ The aliases directory contains the [aliases/index.sh](./aliases/index.sh) that s
 * The [exports/path/install.sh](./exports/path/install.sh) script is only executed when you run the [~/dotfiles/install](./install) script.  
 * The `~/.zshrc` in [~/dotfiles/symlinks/zsh/zshrc.sh](./symlinks/zsh/zshrc.sh) sources the `~/dotfiles/exports/path/PATH.sh` by calling `source ~/dotfiles/exports/path/PATH.sh`.  
 Use `pathadd`to quickly add a new directory to your PATH from the command-line. When you run `pathadd /some/directory` it gets added to the PATH, then gets added to a file called [exports/path/99_tmp.sh](exports/path/99_tmp.sh) for you to sort or commit.
-
-### functions
-
-Functions are loaded into your shell when the `.zshrc` file located in [symlinks/zsh/zshrc.sh](./symlinks/zsh/zshrc.sh) calls `source ~/dotfiles/functions/index.sh`. Any function created here is available anywhere.
 
 ### symlinks
 
